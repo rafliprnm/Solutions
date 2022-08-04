@@ -2,7 +2,7 @@
   <div>
     <div class="navbar bg-blue-500 text-white shadow-lg px-5 ">
       <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl">Solution</a>
+        <a class="btn btn-ghost normal-case text-xl">SolutionS</a>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal p-0 uppercase font-semibold">
@@ -12,8 +12,8 @@
       </div>
       <div v-if="isLogin" class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost avatar">
-          <div class="w-10 rounded-full">
-            <img src="https://placeimg.com/80/80/people" />
+          <div class="w-10 rounded-full border-2">
+            <img src="../assets/img/user.png" />
           </div>
           <p class="ml-2">{{user.displayName}}</p>
         </label>

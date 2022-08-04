@@ -1,6 +1,7 @@
 <template>
   <div>
     <div
+      v-if="isLogin"
       tabindex="0"
       class="collapse border border-base-300 bg-base-100 rounded-box my-5"
     >
@@ -8,9 +9,9 @@
         <div class="card bg-base-100">
           <div class="card-body flex">
             <form class="flex">
-              <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" />
+              <label tabindex="0" class="btn btn-ghost btn-circle avatar mr-3">
+                <div class="w-12 rounded-full border-2 border-black ">
+                  <img src="../assets/img/user.png" />
                 </div>
               </label>
               <div class="input-group">
@@ -20,10 +21,33 @@
                   class="input input-bordered w-full"
                   v-model="questForum.question"
                 />
-                <button type="submit" class="btn btn-info">Done</button>
+                <button type="submit" class="btn btn-info hover:bg-blue-500">
+                  Done
+                </button>
               </div>
             </form>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-else class="my-3">
+      <div class="alert alert-info shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="stroke-current flex-shrink-0 w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <span>Please login to ask questions.</span>
         </div>
       </div>
     </div>
@@ -83,7 +107,7 @@
 </template>
 
 <script>
-
+import { getAuth } from "@firebase/auth";
 export default {
   name: "fieldHome",
   data() {
@@ -92,9 +116,18 @@ export default {
         question: "",
       },
       questions: [],
+      isLogin: false,
+      user: {},
       isLoading: false,
       isError: false,
     };
+  },
+  created() {
+    const user = getAuth().currentUser;
+    if (user != null) {
+      this.isLogin = true;
+      this.user = user;
+    }
   },
 };
 </script>
