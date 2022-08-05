@@ -29,6 +29,7 @@
             rounded-box
             w-52
             text-black
+            
           "
         >
           <li>
@@ -43,7 +44,6 @@
           <div class="uppercase">
             <router-link to="/login"><button class="btn btn-active  bg-green-500 mx-1 hover:bg-green-600">Login</button></router-link>
             <router-link to="/register"><button class="btn outline-none bg-white text-black mx-1 hover:bg-gray-200">Register</button></router-link>
-            
             
           </div>
       </div>

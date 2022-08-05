@@ -120,11 +120,6 @@
                     "
                     id="exampleCheck2"
                   />
-                  <label
-                    class="form-check-label inline-block text-gray-800"
-                    for="exampleCheck2"
-                    >Remember me</label
-                  >
                 </div>
               </div>
 
